@@ -1,0 +1,177 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 113, 122, 0.45);
+}
+
+/* Markdown prose refinement without external plugin dependency */
+.kevin-prose {
+  font-size: 0.96875rem;
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+
+.kevin-prose > *:first-child {
+  margin-top: 0;
+}
+
+.kevin-prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.kevin-prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.kevin-prose h1,
+.kevin-prose h2,
+.kevin-prose h3,
+.kevin-prose h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 1.35em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.kevin-prose h1 { font-size: 1.375rem; }
+.kevin-prose h2 { font-size: 1.1875rem; }
+.kevin-prose h3 { font-size: 1.0625rem; }
+
+.kevin-prose ul,
+.kevin-prose ol {
+  margin-top: 0.6em;
+  margin-bottom: 0.75em;
+  padding-left: 1.35em;
+}
+
+.kevin-prose ul {
+  list-style-type: disc;
+}
+
+.kevin-prose ol {
+  list-style-type: decimal;
+}
+
+.kevin-prose li {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.kevin-prose li::marker {
+  color: rgb(113 113 122);
+}
+
+.kevin-prose blockquote {
+  margin: 1em 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(228 228 231);
+  border-radius: 0.625rem;
+  background: rgb(244 244 245 / 0.65);
+  color: rgb(63 63 70);
+}
+
+.dark .kevin-prose blockquote {
+  border-color: rgb(39 39 42);
+  background: rgb(24 24 27 / 0.75);
+  color: rgb(212 212 216);
+}
+
+.kevin-prose a {
+  color: rgb(37 99 235);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.dark .kevin-prose a {
+  color: rgb(96 165 250);
+}
+
+.kevin-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.kevin-prose th,
+.kevin-prose td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgb(228 228 231);
+}
+
+.dark .kevin-prose th,
+.dark .kevin-prose td {
+  border-bottom-color: rgb(39 39 42);
+}
+
+.kevin-prose th {
+  font-weight: 600;
+  color: rgb(24 24 27);
+  background: rgb(244 244 245 / 0.7);
+}
+
+.dark .kevin-prose th {
+  color: rgb(244 244 245);
+  background: rgb(24 24 27 / 0.8);
+}
+
+.kevin-prose hr {
+  border: 0;
+  border-top: 1px solid rgb(228 228 231);
+  margin: 1.5em 0;
+}
+
+.dark .kevin-prose hr {
+  border-top-color: rgb(39 39 42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
